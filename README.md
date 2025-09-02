@@ -1,4 +1,6 @@
 # EX. NO: 1(A) : IMPLEMENTATION OF CAESAR CIPHER
+## NAME : BALAJI J
+## REG NO: 212224040042
 
 ## AIM:
 To implement the simple substitution technique named Caesar cipher using C language.
@@ -16,8 +18,35 @@ STEP-4: Else subtract the key from the plain text.
 STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
+```
+def caesar_encrypt(text, key):
+    result = ""
+    for char in text:
+        if char.isupper():
+            result += chr((ord(char) - ord('A') + key) % 26 + ord('A'))
+        elif char.islower():
+            result += chr((ord(char) - ord('a') + key) % 26 + ord('a'))
+        else:
+            result += char
+    return result
+
+def caesar_decrypt(text, key):
+    return caesar_encrypt(text, -key)
+
+
+message = input("Enter the message to encrypt: ")
+key = int(input("Enter the Caesar Cipher key (integer): "))
+
+encrypted = caesar_encrypt(message, key)
+print("Encrypted Message:", encrypted)
+
+decrypted = caesar_decrypt(encrypted, key)
+print("Decrypted Message:", decrypted)
+```
 
 ## OUTPUT:
+
+<img width="1652" height="1002" alt="Screenshot 2025-09-02 140843" src="https://github.com/user-attachments/assets/5a931f0d-a72a-4b82-9742-fc06eabbd7b5" />
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
